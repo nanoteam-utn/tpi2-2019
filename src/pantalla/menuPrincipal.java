@@ -10,7 +10,9 @@ package pantalla;
  * @author erick
  */
 public class menuPrincipal extends javax.swing.JFrame {
-
+    
+    
+    
     /**
      * Creates new form menuPrincipal
      */
@@ -89,7 +91,7 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Nimbus Mono L", 1, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/contrato.png"))); // NOI18N
-        jButton1.setText("VER ORDENES TECNICAS");
+        jButton1.setText("REALIZAR DIAGNOSTICO");
         getContentPane().add(jButton1);
         jButton1.setBounds(13, 262, 339, 85);
 

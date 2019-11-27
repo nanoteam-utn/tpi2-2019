@@ -8,11 +8,16 @@ package pantalla;
 import javax.swing.JOptionPane;
 import maxselectdds.Metodos_sql;
 
+
 /**
  *
  * @author erick
  */
 public class cargarCliente extends javax.swing.JFrame {
+
+    static String dniNuevo;
+    static boolean esNuevo;
+
     Metodos_sql metodos = new Metodos_sql();
     /**
      * Creates new form cargarCliente
@@ -22,6 +27,7 @@ public class cargarCliente extends javax.swing.JFrame {
         setSize(575,580);
         setResizable(false);
         setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -277,23 +283,28 @@ public class cargarCliente extends javax.swing.JFrame {
           txtProv.getText().length()==0 ||
           txtTel.getText().length()==0 ||
           txtDir.getText().length()==0 ){
+           dniNuevo = txtDNI.getText();
+           esNuevo = true;
            JOptionPane.showMessageDialog(this, "Por favor complete todos los campos", "Datos Faltantes", JOptionPane.ERROR_MESSAGE);
        } else {
-          seleccionarMotivo carProducto = new seleccionarMotivo();
-          carProducto.setVisible(true);
-          dispose();
-       }
-        
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int i = metodos.guardar(txtDNI.getText(), txtNomyap.getText(), txtDir.getText(), txtLoc.getText(), txtProv.getText(), txtTel.getText(), txtCP.getText());
-        if(i > 0){
+          int i = metodos.guardar(txtDNI.getText(), txtNomyap.getText(), txtDir.getText(), txtLoc.getText(), txtProv.getText(), txtTel.getText(), txtCP.getText());
+            if(i > 0){
             JOptionPane.showMessageDialog(this,"El cliente fue cargado con exito!");
+            seleccionarMotivo carProducto = new seleccionarMotivo();
+            carProducto.setVisible(true);
+            dispose();
+            dniNuevo = txtDNI.getText();
+            esNuevo = true;
             
         }else{
             JOptionPane.showMessageDialog(this,"No se pudieron guardar los datos...");
         }
+       }       
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -301,6 +312,7 @@ public class cargarCliente extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -327,6 +339,7 @@ public class cargarCliente extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new cargarCliente().setVisible(true);
+                
             }
         });
     }
@@ -352,4 +365,6 @@ public class cargarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtProv;
     private javax.swing.JTextField txtTel;
     // End of variables declaration//GEN-END:variables
+    
+    
 }

@@ -5,6 +5,7 @@
  */
 package pantalla;
 
+
 import javax.swing.JOptionPane;
 import maxselectdds.Metodos_sql;
 /**
@@ -204,4 +205,6 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField txt_contraseniaLogin;
     private javax.swing.JTextField txt_usuarioLogin;
     // End of variables declaration//GEN-END:variables
+
+    
 }

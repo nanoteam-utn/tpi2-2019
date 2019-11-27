@@ -18,7 +18,7 @@ import maxselectdds.Metodos_sql;
 public class registrarLlamada extends javax.swing.JFrame {
 
     Metodos_sql metodos = new Metodos_sql();
-
+    static String dniEncontrado;
     /**
      * Creates new form cargarReclamo
      */
@@ -117,6 +117,8 @@ public class registrarLlamada extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_mainMenuActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        
+        dniEncontrado = txtDNI.getText();
         String busqueda_dni = null;
         try {
             busqueda_dni = metodos.buscarDNI(txtDNI.getText());
@@ -130,18 +132,18 @@ public class registrarLlamada extends javax.swing.JFrame {
             dispose();
         }else{
             JOptionPane.showMessageDialog(this, "El usuario ya se encuentra registrado!");
-           
-            
             /*antes de esto de abajo (cambio de pantallas) hay que guardar ya el 
             dni encontrado para registrar la llamada de este cliente*/
             seleccionarMotivo selecMotivo = new seleccionarMotivo();         
             selecMotivo.setVisible(true);
             dispose();
+            dniEncontrado = txtDNI.getText();
+                       
         }
     }//GEN-LAST:event_BuscarActionPerformed
 
     private void BuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_BuscarMouseClicked
 
     private void txtDNIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIKeyTyped

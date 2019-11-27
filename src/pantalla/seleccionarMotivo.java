@@ -6,13 +6,20 @@
 package pantalla;
 
 import javax.swing.JOptionPane;
+import maxselectdds.Metodos_sql;
+
 
 /**
  *
  * @author erick
  */
 public class seleccionarMotivo extends javax.swing.JFrame {
-
+    Metodos_sql metodos = new Metodos_sql();
+    
+    String dniNuevo = cargarCliente.dniNuevo;
+    String dniEncontrado = registrarLlamada.dniEncontrado;
+    static boolean nuevito;
+    
     /**
      * Creates new form cargarProducto
      */
@@ -22,8 +29,14 @@ public class seleccionarMotivo extends javax.swing.JFrame {
         setSize(575,300);
         setLocationRelativeTo(null);
         
+        if (cargarCliente.esNuevo){
+             label_dni.setText("DNI Cliente: " + dniNuevo);
+        } else {
+             label_dni.setText("DNI Cliente: " + dniEncontrado);
+        }
+        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,10 +52,11 @@ public class seleccionarMotivo extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         box_motivos = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        label_dni = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_finalizar.setFont(new java.awt.Font("Nimbus Mono L", 1, 18)); // NOI18N
         btn_finalizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/marca-de-verificacion.png"))); // NOI18N
@@ -58,8 +72,7 @@ public class seleccionarMotivo extends javax.swing.JFrame {
                 btn_finalizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_finalizar);
-        btn_finalizar.setBounds(390, 200, 169, 56);
+        getContentPane().add(btn_finalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, 56));
 
         btn_mainMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icono-de-inicio-silueta.png"))); // NOI18N
         btn_mainMenu.setText("MENU PRINCIPAL");
@@ -68,63 +81,63 @@ public class seleccionarMotivo extends javax.swing.JFrame {
                 btn_mainMenuMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_mainMenu);
-        btn_mainMenu.setBounds(12, 12, 190, 56);
+        getContentPane().add(btn_mainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 169, 56));
 
         label_UsuarioActual1.setFont(new java.awt.Font("Nimbus Mono L", 1, 24)); // NOI18N
         label_UsuarioActual1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_UsuarioActual1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/usuario.png"))); // NOI18N
         label_UsuarioActual1.setText("Admin");
         label_UsuarioActual1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(label_UsuarioActual1);
-        label_UsuarioActual1.setBounds(405, 12, 158, 56);
-        getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(12, 74, 551, 10);
+        getContentPane().add(label_UsuarioActual1, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 12, 158, 56));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 74, 551, 10));
 
         box_motivos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un motivo por favor", "Falla en Termotanque", "Falla en Calefon", "Falla en Anafe", "Consulta tecnica", "Consulta comercial", "Consulta administrativa", "Consulta de garantia", "Otros motivos" }));
-        getContentPane().add(box_motivos);
-        box_motivos.setBounds(12, 122, 551, 23);
+        getContentPane().add(box_motivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 551, -1));
 
         jLabel1.setText("Seleccione un motivo de llamada:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(12, 102, 192, 14);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 550, -1));
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo1.jpg"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 580, 280);
+        label_dni.setText("DNI Cliente:");
+        getContentPane().add(label_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 87, 551, -1));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo1.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 280));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_finalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_finalizarMouseClicked
-        /* Con esto hay que confirmar los datos cargados 
         
+        String seleccion = null;
+        seleccion = (String) box_motivos.getSelectedItem();
+         
+        int i = metodos.guardarMotivo(seleccion,"39136101");
+        if(i > 0){
+            JOptionPane.showMessageDialog(this,"Llamada registrada correctamente", "Aviso",
+                    JOptionPane.INFORMATION_MESSAGE);
+            
+        }else{
+            JOptionPane.showMessageDialog(this,"No se pudieron guardar los datos...", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
         
-        
-        */
-        
-        
-        
-        /*Mensaje de Exito*/
-        JOptionPane.showMessageDialog(this, "Llamada registrada correctamente", 
-                "Aviso", JOptionPane.INFORMATION_MESSAGE);
-        
-        
-        /*Volver al menu principal*/
         menuPrincipal mp = new menuPrincipal();
-        mp.setVisible(true);
+        mp.setVisible(true);      
         dispose();
+        cargarCliente.esNuevo = false;
+      
     }//GEN-LAST:event_btn_finalizarMouseClicked
 
     private void btn_mainMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_mainMenuMouseClicked
         menuPrincipal mp = new menuPrincipal();
         mp.setVisible(true);
         dispose();
+        cargarCliente.esNuevo = false;
     }//GEN-LAST:event_btn_mainMenuMouseClicked
-
+       
     private void btn_finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalizarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_finalizarActionPerformed
 
     /**
@@ -168,8 +181,9 @@ public class seleccionarMotivo extends javax.swing.JFrame {
     private javax.swing.JButton btn_finalizar;
     private javax.swing.JButton btn_mainMenu;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel label_UsuarioActual1;
+    private javax.swing.JLabel label_dni;
     // End of variables declaration//GEN-END:variables
 }

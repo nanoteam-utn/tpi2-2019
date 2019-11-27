@@ -53,7 +53,7 @@ public class Metodos_sql {
         Connection conn = null;
         try{
             conn = Conectar.Conectar();
-            String sentencia_buscar = ("SELECT nombre,apellidos FROM usuarios WHERE correo = '" + correo + "'");
+            String sentencia_buscar = ("SELECT dni FROM usuarios WHERE correo = '" + correo + "'");
             sentencia_preparada = conn.prepareStatement(sentencia_buscar);
             resultado = sentencia_preparada.executeQuery();
             if(resultado.next()){
@@ -119,6 +119,27 @@ public class Metodos_sql {
         
         }
         return busqueda_dni;
+    }
+    public int guardarMotivo(String motivo,String dni){
+        int resultado = 0;
+        Connection conn = null;
+        
+        String sentencia_guardar = ("INSERT INTO motivos (motivo,dni) VALUES (?,?)");
+        
+        try{
+            conn = Conectar.Conectar();
+            sentencia_preparada = conn.prepareStatement(sentencia_guardar);
+            
+            sentencia_preparada.setString(1, motivo);
+            sentencia_preparada.setString(2, dni);
+            
+            resultado = sentencia_preparada.executeUpdate();
+            sentencia_preparada.close();
+            conn.close();
+        } catch(Exception e){
+            System.out.println(e);
+        }
+        return resultado;
     }
     
 }
