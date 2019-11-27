@@ -127,7 +127,17 @@ public class registrarLlamada extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El usuario no se encuentra registrado");
             cargarCliente cc = new cargarCliente();
             cc.setVisible(true);
-            dispose();}
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, "El usuario ya se encuentra registrado!");
+            seleccionarMotivo selecMotivo = new seleccionarMotivo();
+            
+            /*antes de esto de abajo (cambio de pantallas) hay que guardar ya el 
+            dni encontrado para registrar la llamada de este cliente*/
+           
+            selecMotivo.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_BuscarActionPerformed
 
     private void BuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseClicked
