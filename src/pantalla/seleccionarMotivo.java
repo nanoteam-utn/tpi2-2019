@@ -105,8 +105,10 @@ public class seleccionarMotivo extends javax.swing.JFrame {
         */
         
         
+        
         /*Mensaje de Exito*/
-        JOptionPane.showMessageDialog(this, "Llamada registrada correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Llamada registrada correctamente", 
+                "Aviso", JOptionPane.INFORMATION_MESSAGE);
         
         
         /*Volver al menu principal*/

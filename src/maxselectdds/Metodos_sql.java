@@ -22,21 +22,23 @@ public class Metodos_sql {
     public static String sql;
     public static int resultado_numero = 0;
     
-    public int guardar(String nombre, String apellidos, String correo, String contrasena){
+    public int guardar(String dni, String nomyap, String direccion, String localidad, String provincia, String telefono, String CP){
         int resultado = 0;
         Connection conn = null;
         
-        String sentencia_guardar = ("INSERT INTO tabla ()");
+        String sentencia_guardar = ("INSERT INTO clientes (dni,nomyap,direccion,localidad,provincia,telefono,CP) VALUES (?,?,?,?,?,?,?)");
         
         try{
             conn = Conectar.Conectar();
             sentencia_preparada = conn.prepareStatement(sentencia_guardar);
             
-            sentencia_preparada.setString(1, nombre);
-            sentencia_preparada.setString(2, apellidos);
-            sentencia_preparada.setString(3, correo);
-            sentencia_preparada.setString(4, contrasena);
-            
+            sentencia_preparada.setString(1, dni);
+            sentencia_preparada.setString(2, nomyap);
+            sentencia_preparada.setString(3, direccion);
+            sentencia_preparada.setString(4, localidad);
+            sentencia_preparada.setString(5, provincia);
+            sentencia_preparada.setString(6, telefono);
+            sentencia_preparada.setString(7, CP);
             
             resultado = sentencia_preparada.executeUpdate();
             sentencia_preparada.close();

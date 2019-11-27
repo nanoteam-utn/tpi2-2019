@@ -130,11 +130,11 @@ public class registrarLlamada extends javax.swing.JFrame {
             dispose();
         }else{
             JOptionPane.showMessageDialog(this, "El usuario ya se encuentra registrado!");
-            seleccionarMotivo selecMotivo = new seleccionarMotivo();
+           
             
             /*antes de esto de abajo (cambio de pantallas) hay que guardar ya el 
             dni encontrado para registrar la llamada de este cliente*/
-           
+            seleccionarMotivo selecMotivo = new seleccionarMotivo();         
             selecMotivo.setVisible(true);
             dispose();
         }

@@ -6,13 +6,14 @@
 package pantalla;
 
 import javax.swing.JOptionPane;
+import maxselectdds.Metodos_sql;
 
 /**
  *
  * @author erick
  */
 public class cargarCliente extends javax.swing.JFrame {
-
+    Metodos_sql metodos = new Metodos_sql();
     /**
      * Creates new form cargarCliente
      */
@@ -37,19 +38,19 @@ public class cargarCliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txt_nomApellidoCliente = new javax.swing.JTextField();
+        txtNomyap = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
-        txt_dniCliente = new javax.swing.JTextField();
-        txt_direccionCliente = new javax.swing.JTextField();
-        txt_provinciaCliente = new javax.swing.JTextField();
-        txt_localidadCliente = new javax.swing.JTextField();
-        txt_cpcliente = new javax.swing.JTextField();
-        txt_telefonoCliente = new javax.swing.JTextField();
+        txtDNI = new javax.swing.JTextField();
+        txtDir = new javax.swing.JTextField();
+        txtProv = new javax.swing.JTextField();
+        txtLoc = new javax.swing.JTextField();
+        txtCP = new javax.swing.JTextField();
+        txtTel = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,18 +81,18 @@ public class cargarCliente extends javax.swing.JFrame {
         jLabel3.setText("Direccion:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 208, 262, -1));
 
-        txt_nomApellidoCliente.setMaximumSize(new java.awt.Dimension(4, 22));
-        txt_nomApellidoCliente.setMinimumSize(new java.awt.Dimension(4, 22));
-        txt_nomApellidoCliente.setPreferredSize(new java.awt.Dimension(4, 22));
-        txt_nomApellidoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNomyap.setMaximumSize(new java.awt.Dimension(4, 22));
+        txtNomyap.setMinimumSize(new java.awt.Dimension(4, 22));
+        txtNomyap.setPreferredSize(new java.awt.Dimension(4, 22));
+        txtNomyap.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_nomApellidoClienteKeyTyped(evt);
+                txtNomyapKeyTyped(evt);
             }
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txt_nomApellidoClienteKeyPressed(evt);
+                txtNomyapKeyPressed(evt);
             }
         });
-        getContentPane().add(txt_nomApellidoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 172, 551, 30));
+        getContentPane().add(txtNomyap, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 172, 551, 30));
 
         jLabel6.setText("Telefono:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 338, 266, -1));
@@ -114,85 +115,90 @@ public class cargarCliente extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(497, 487, -1, 56));
 
-        txt_dniCliente.setMaximumSize(new java.awt.Dimension(4, 22));
-        txt_dniCliente.setMinimumSize(new java.awt.Dimension(4, 22));
-        txt_dniCliente.setPreferredSize(new java.awt.Dimension(4, 22));
-        txt_dniCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtDNI.setMaximumSize(new java.awt.Dimension(4, 22));
+        txtDNI.setMinimumSize(new java.awt.Dimension(4, 22));
+        txtDNI.setPreferredSize(new java.awt.Dimension(4, 22));
+        txtDNI.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_dniClienteKeyTyped(evt);
+                txtDNIKeyTyped(evt);
             }
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txt_dniClienteKeyPressed(evt);
+                txtDNIKeyPressed(evt);
             }
         });
-        getContentPane().add(txt_dniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 110, 551, 30));
+        getContentPane().add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 110, 551, 30));
 
-        txt_direccionCliente.setMaximumSize(new java.awt.Dimension(4, 22));
-        txt_direccionCliente.setMinimumSize(new java.awt.Dimension(4, 22));
-        txt_direccionCliente.setPreferredSize(new java.awt.Dimension(4, 22));
-        txt_direccionCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtDir.setMaximumSize(new java.awt.Dimension(4, 22));
+        txtDir.setMinimumSize(new java.awt.Dimension(4, 22));
+        txtDir.setPreferredSize(new java.awt.Dimension(4, 22));
+        txtDir.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_direccionClienteKeyTyped(evt);
+                txtDirKeyTyped(evt);
             }
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txt_direccionClienteKeyPressed(evt);
+                txtDirKeyPressed(evt);
             }
         });
-        getContentPane().add(txt_direccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 234, 551, 30));
+        getContentPane().add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 234, 551, 30));
 
-        txt_provinciaCliente.setMaximumSize(new java.awt.Dimension(4, 22));
-        txt_provinciaCliente.setMinimumSize(new java.awt.Dimension(4, 22));
-        txt_provinciaCliente.setPreferredSize(new java.awt.Dimension(4, 22));
-        txt_provinciaCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtProv.setMaximumSize(new java.awt.Dimension(4, 22));
+        txtProv.setMinimumSize(new java.awt.Dimension(4, 22));
+        txtProv.setPreferredSize(new java.awt.Dimension(4, 22));
+        txtProv.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_provinciaClienteKeyTyped(evt);
+                txtProvKeyTyped(evt);
             }
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txt_provinciaClienteKeyPressed(evt);
+                txtProvKeyPressed(evt);
             }
         });
-        getContentPane().add(txt_provinciaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 296, 266, 30));
+        getContentPane().add(txtProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 296, 266, 30));
 
-        txt_localidadCliente.setMaximumSize(new java.awt.Dimension(4, 22));
-        txt_localidadCliente.setMinimumSize(new java.awt.Dimension(4, 22));
-        txt_localidadCliente.setPreferredSize(new java.awt.Dimension(4, 22));
-        txt_localidadCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtLoc.setMaximumSize(new java.awt.Dimension(4, 22));
+        txtLoc.setMinimumSize(new java.awt.Dimension(4, 22));
+        txtLoc.setPreferredSize(new java.awt.Dimension(4, 22));
+        txtLoc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_localidadClienteKeyTyped(evt);
+                txtLocKeyTyped(evt);
             }
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txt_localidadClienteKeyPressed(evt);
+                txtLocKeyPressed(evt);
             }
         });
-        getContentPane().add(txt_localidadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 296, 266, 30));
+        getContentPane().add(txtLoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 296, 266, 30));
 
-        txt_cpcliente.setMaximumSize(new java.awt.Dimension(4, 22));
-        txt_cpcliente.setMinimumSize(new java.awt.Dimension(4, 22));
-        txt_cpcliente.setPreferredSize(new java.awt.Dimension(4, 22));
-        txt_cpcliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCP.setMaximumSize(new java.awt.Dimension(4, 22));
+        txtCP.setMinimumSize(new java.awt.Dimension(4, 22));
+        txtCP.setPreferredSize(new java.awt.Dimension(4, 22));
+        txtCP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_cpclienteKeyTyped(evt);
+                txtCPKeyTyped(evt);
             }
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txt_cpclienteKeyPressed(evt);
+                txtCPKeyPressed(evt);
             }
         });
-        getContentPane().add(txt_cpcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 364, 266, 30));
+        getContentPane().add(txtCP, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 364, 266, 30));
 
-        txt_telefonoCliente.setMaximumSize(new java.awt.Dimension(4, 22));
-        txt_telefonoCliente.setMinimumSize(new java.awt.Dimension(4, 22));
-        txt_telefonoCliente.setPreferredSize(new java.awt.Dimension(4, 22));
-        txt_telefonoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtTel.setMaximumSize(new java.awt.Dimension(4, 22));
+        txtTel.setMinimumSize(new java.awt.Dimension(4, 22));
+        txtTel.setPreferredSize(new java.awt.Dimension(4, 22));
+        txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_telefonoClienteKeyTyped(evt);
+                txtTelKeyTyped(evt);
             }
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txt_telefonoClienteKeyPressed(evt);
+                txtTelKeyPressed(evt);
             }
         });
-        getContentPane().add(txt_telefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 364, 266, 30));
+        getContentPane().add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 364, 266, 30));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo1.jpg"))); // NOI18N
@@ -207,70 +213,70 @@ public class cargarCliente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btn_mainMenuMouseClicked
 
-    private void txt_nomApellidoClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nomApellidoClienteKeyPressed
+    private void txtNomyapKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomyapKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nomApellidoClienteKeyPressed
+    }//GEN-LAST:event_txtNomyapKeyPressed
 
-    private void txt_nomApellidoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nomApellidoClienteKeyTyped
-    }//GEN-LAST:event_txt_nomApellidoClienteKeyTyped
+    private void txtNomyapKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomyapKeyTyped
+    }//GEN-LAST:event_txtNomyapKeyTyped
 
-    private void txt_dniClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_dniClienteKeyTyped
+    private void txtDNIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIKeyTyped
         char c = evt.getKeyChar(); if (c<'0'||c>'9') evt.consume();
-    }//GEN-LAST:event_txt_dniClienteKeyTyped
+    }//GEN-LAST:event_txtDNIKeyTyped
 
-    private void txt_dniClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_dniClienteKeyPressed
+    private void txtDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_dniClienteKeyPressed
+    }//GEN-LAST:event_txtDNIKeyPressed
 
-    private void txt_direccionClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_direccionClienteKeyTyped
+    private void txtDirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_direccionClienteKeyTyped
+    }//GEN-LAST:event_txtDirKeyTyped
 
-    private void txt_direccionClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_direccionClienteKeyPressed
+    private void txtDirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_direccionClienteKeyPressed
+    }//GEN-LAST:event_txtDirKeyPressed
 
-    private void txt_provinciaClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_provinciaClienteKeyTyped
+    private void txtProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProvKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_provinciaClienteKeyTyped
+    }//GEN-LAST:event_txtProvKeyTyped
 
-    private void txt_provinciaClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_provinciaClienteKeyPressed
+    private void txtProvKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProvKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_provinciaClienteKeyPressed
+    }//GEN-LAST:event_txtProvKeyPressed
 
-    private void txt_localidadClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_localidadClienteKeyTyped
+    private void txtLocKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLocKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_localidadClienteKeyTyped
+    }//GEN-LAST:event_txtLocKeyTyped
 
-    private void txt_localidadClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_localidadClienteKeyPressed
+    private void txtLocKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLocKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_localidadClienteKeyPressed
+    }//GEN-LAST:event_txtLocKeyPressed
 
-    private void txt_cpclienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cpclienteKeyTyped
+    private void txtCPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPKeyTyped
         char c = evt.getKeyChar(); if (c<'0'||c>'9') evt.consume();
-    }//GEN-LAST:event_txt_cpclienteKeyTyped
+    }//GEN-LAST:event_txtCPKeyTyped
 
-    private void txt_cpclienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cpclienteKeyPressed
+    private void txtCPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_cpclienteKeyPressed
+    }//GEN-LAST:event_txtCPKeyPressed
 
-    private void txt_telefonoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefonoClienteKeyTyped
+    private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
         char c = evt.getKeyChar(); if (c<'0'||c>'9') evt.consume();
-    }//GEN-LAST:event_txt_telefonoClienteKeyTyped
+    }//GEN-LAST:event_txtTelKeyTyped
 
-    private void txt_telefonoClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefonoClienteKeyPressed
+    private void txtTelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_telefonoClienteKeyPressed
+    }//GEN-LAST:event_txtTelKeyPressed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         
-       if(txt_nomApellidoCliente.getText().length()== 0 ||
-          txt_dniCliente.getText().length()==0 ||
-          txt_cpcliente.getText().length()==0 ||
-          txt_localidadCliente.getText().length()==0 ||
-          txt_provinciaCliente.getText().length()==0 ||
-          txt_telefonoCliente.getText().length()==0 ||
-          txt_direccionCliente.getText().length()==0 ){
+       if(txtNomyap.getText().length()== 0 ||
+          txtDNI.getText().length()==0 ||
+          txtCP.getText().length()==0 ||
+          txtLoc.getText().length()==0 ||
+          txtProv.getText().length()==0 ||
+          txtTel.getText().length()==0 ||
+          txtDir.getText().length()==0 ){
            JOptionPane.showMessageDialog(this, "Por favor complete todos los campos", "Datos Faltantes", JOptionPane.ERROR_MESSAGE);
        } else {
           seleccionarMotivo carProducto = new seleccionarMotivo();
@@ -279,6 +285,16 @@ public class cargarCliente extends javax.swing.JFrame {
        }
         
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int i = metodos.guardar(txtDNI.getText(), txtNomyap.getText(), txtDir.getText(), txtLoc.getText(), txtProv.getText(), txtTel.getText(), txtCP.getText());
+        if(i > 0){
+            JOptionPane.showMessageDialog(this,"El cliente fue cargado con exito!");
+            
+        }else{
+            JOptionPane.showMessageDialog(this,"No se pudieron guardar los datos...");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,12 +344,12 @@ public class cargarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel label_UsuarioActual1;
-    private javax.swing.JTextField txt_cpcliente;
-    private javax.swing.JTextField txt_direccionCliente;
-    private javax.swing.JTextField txt_dniCliente;
-    private javax.swing.JTextField txt_localidadCliente;
-    private javax.swing.JTextField txt_nomApellidoCliente;
-    private javax.swing.JTextField txt_provinciaCliente;
-    private javax.swing.JTextField txt_telefonoCliente;
+    private javax.swing.JTextField txtCP;
+    private javax.swing.JTextField txtDNI;
+    private javax.swing.JTextField txtDir;
+    private javax.swing.JTextField txtLoc;
+    private javax.swing.JTextField txtNomyap;
+    private javax.swing.JTextField txtProv;
+    private javax.swing.JTextField txtTel;
     // End of variables declaration//GEN-END:variables
 }
