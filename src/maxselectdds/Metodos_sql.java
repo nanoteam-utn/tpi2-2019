@@ -8,6 +8,7 @@ package maxselectdds;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -15,6 +16,7 @@ import java.sql.ResultSet;
  */
 public class Metodos_sql {
     public static Conectar conn = new Conectar();
+    
     public static PreparedStatement sentencia_preparada;
     public static ResultSet resultado;
     public static String sql;
@@ -44,22 +46,22 @@ public class Metodos_sql {
         }
         return resultado;
     }
-    public static String buscarNombre(String correo){
+    public static String buscarNombre(String correo) throws SQLException{
         String busqueda_nombre = null;
         Connection conn = null;
-        conn = Conectar.Conectar();
-        String sentencia_buscar = ("SELECT nombre,apellido FROM usuarios WHERE correo = '" + correo + "'");
-        sentencia_preparada = conn.prepareStatement(sentencia_buscar);
-        resultado = sentencia_preparada.executeQuery();
-        if(resultado.next()){
-            String nombre = resultado.getString("nombre");
-            String apellidos = resultado.getString("apellidos");
-            busqueda_nombre = (nombre + " " + apellidos);
+        try{
+            conn = Conectar.Conectar();
+            String sentencia_buscar = ("SELECT nombre,apellidos FROM usuarios WHERE correo = '" + correo + "'");
+            sentencia_preparada = conn.prepareStatement(sentencia_buscar);
+            resultado = sentencia_preparada.executeQuery();
+            if(resultado.next()){
+                String nombre = resultado.getString("nombre");
+                String apellidos = resultado.getString("apellidos");
+                busqueda_nombre = (nombre + " " + apellidos);
             
         }
         conn.close();
-        try{
-            
+        
         }catch(Exception e){
             System.out.println(e);
         
@@ -69,11 +71,14 @@ public class Metodos_sql {
     public static String buscarUsuarioRegistrado(String correo,String contrasena){
         String busqueda_usuario = null;
         Connection conn = null;
+        
         try{
             conn = Conectar.Conectar();
             String sentencia_buscar_usuario = ("SELECT nombre,correo,contrasena FROM usuarios WHERE correo = '"+correo+"' && contrasena = '"+contrasena+"'");
             sentencia_preparada = conn.prepareStatement(sentencia_buscar_usuario);
             resultado = sentencia_preparada.executeQuery();
+
+            
             if (resultado.next()){
                 busqueda_usuario = "usuario encontrado";
             }else{
@@ -88,4 +93,30 @@ public class Metodos_sql {
         }
         return busqueda_usuario;
     }
+    public static String buscarDNI(String dni) throws SQLException{
+        String busqueda_dni = null;
+        Connection conn = null;
+
+        try{
+            conn = Conectar.Conectar();
+            String sentencia_buscar_usuario = ("SELECT dni FROM clientes WHERE dni = '" + dni + "'");
+            sentencia_preparada = conn.prepareStatement(sentencia_buscar_usuario);
+            resultado = sentencia_preparada.executeQuery();
+            
+            if(resultado.next()){
+                busqueda_dni = "usuario encontrado";
+            
+            }else{
+                busqueda_dni = "usuario no encontrado";
+                }
+        
+        conn.close();
+  
+        }catch(Exception e){
+            System.out.println(e);
+        
+        }
+        return busqueda_dni;
+    }
+    
 }

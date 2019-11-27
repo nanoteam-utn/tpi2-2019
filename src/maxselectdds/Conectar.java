@@ -17,33 +17,25 @@ import java.sql.Statement;
  */
 public class Conectar {
     private static Connection conn;
-    private static final String driver = "com.mysql.jdbc.Driver";
-    private static final String user = "root";
-    private static final String password = "1234";
-    private static final String url = "jdbc:mysql://localhost:3306/disenio";
+    private static final String clase = "com.mysql.jdbc.Driver";
+    private static final String usuario = "root";
+    private static final String contrasena = "1234";
+    private static final String url = "jdbc:mysql://localhost/disenio";
 
     public static Connection Conectar() {
         Connection conn = null;
         try{
-            Class.forName(driver);
-            conn = DriverManager.getConnection(url,user,password);
-            if(conn != null){
-                System.out.println("Conexion establecida..");
-            }
-            Statement estado =  conn.createStatement();
-            ResultSet resultado = estado.executeQuery("select * from persona");        
-                      
+            Class.forName(clase);
+            conn = DriverManager.getConnection(url,usuario,contrasena);
+            
+            System.out.println("Conexion establecida..");
+                            
             
         } catch(ClassNotFoundException | SQLException e){
-            System.out.println("Error al conectar con "+e);
+            System.out.println(e);
         }
-        return conn;
-    
-    }
-    public Connection getConnection(){
-        return conn;
+        return conn;    
     }
 
-    
 }
 
