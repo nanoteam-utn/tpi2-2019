@@ -16,6 +16,7 @@ public class menuPrincipal extends javax.swing.JFrame {
      */
     public menuPrincipal() {
         initComponents();
+        setSize(364,500);
         setResizable(false);
         setLocationRelativeTo(null);
         
@@ -30,24 +31,43 @@ public class menuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         label_UsuarioActual = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         btn_cerrarSesion = new javax.swing.JButton();
         btn_editarPerfil = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("Nimbus Mono L", 1, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/contrato.png"))); // NOI18N
-        jButton1.setText("VER ORDENES TECNICAS");
+        label_UsuarioActual.setFont(new java.awt.Font("Nimbus Mono L", 1, 24)); // NOI18N
+        label_UsuarioActual.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_UsuarioActual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/usuario.png"))); // NOI18N
+        label_UsuarioActual.setText("Admin");
+        label_UsuarioActual.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(label_UsuarioActual);
+        label_UsuarioActual.setBounds(215, 12, 137, 56);
 
-        jButton2.setFont(new java.awt.Font("Nimbus Mono L", 1, 18)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nota.png"))); // NOI18N
-        jButton2.setText("CARGAR RECLAMO");
+        btn_cerrarSesion.setText("Cerrar Sesion");
+        btn_cerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cerrarSesionMouseClicked(evt);
+            }
+        });
+        btn_cerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cerrarSesionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_cerrarSesion);
+        btn_cerrarSesion.setBounds(12, 44, 131, 24);
+
+        btn_editarPerfil.setText("Editar Perfil");
+        getContentPane().add(btn_editarPerfil);
+        btn_editarPerfil.setBounds(12, 15, 131, 24);
 
         jButton4.setFont(new java.awt.Font("Nimbus Mono L", 1, 18)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/apoyar.png"))); // NOI18N
@@ -59,93 +79,32 @@ public class menuPrincipal extends javax.swing.JFrame {
                 jButton4MouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(712, 712, 712))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(161, Short.MAX_VALUE)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        label_UsuarioActual.setFont(new java.awt.Font("Nimbus Mono L", 1, 24)); // NOI18N
-        label_UsuarioActual.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_UsuarioActual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/usuario.png"))); // NOI18N
-        label_UsuarioActual.setText("Admin");
-        label_UsuarioActual.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        btn_cerrarSesion.setText("Cerrar Sesion");
-        btn_cerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_cerrarSesionMouseClicked(evt);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(13, 166, 339, 85);
 
-        btn_editarPerfil.setText("Editar Perfil");
+        jButton1.setFont(new java.awt.Font("Nimbus Mono L", 1, 18)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/contrato.png"))); // NOI18N
+        jButton1.setText("VER ORDENES TECNICAS");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(13, 262, 339, 85);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 764, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_cerrarSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_editarPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label_UsuarioActual, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(label_UsuarioActual, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_editarPerfil)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_cerrarSesion)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(460, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(75, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
-        );
+        jButton2.setFont(new java.awt.Font("Nimbus Mono L", 1, 18)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nota.png"))); // NOI18N
+        jButton2.setText("CARGAR RECLAMO");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(12, 358, 340, 85);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(12, 74, 340, 10);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo1.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 370, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -161,6 +120,14 @@ public class menuPrincipal extends javax.swing.JFrame {
         regcall.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void btn_cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrarSesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cerrarSesionActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,7 +170,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel label_UsuarioActual;
     // End of variables declaration//GEN-END:variables

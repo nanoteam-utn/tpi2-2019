@@ -5,18 +5,26 @@
  */
 package pantalla;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import maxselectdds.Metodos_sql;
+
 /**
  *
  * @author erick
  */
 public class registrarLlamada extends javax.swing.JFrame {
 
+    Metodos_sql metodos = new Metodos_sql();
+
     /**
      * Creates new form cargarReclamo
      */
     public registrarLlamada() {
         initComponents();
-        setSize(1088,550);
+        setSize(575,580);
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -30,61 +38,105 @@ public class registrarLlamada extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToolBar1 = new javax.swing.JToolBar();
         label_UsuarioActual = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_mainMenu = new javax.swing.JButton();
+        txtDNI = new javax.swing.JTextField();
+        label_ingreseDNI = new javax.swing.JLabel();
+        Buscar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+
+        jToolBar1.setRollover(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         label_UsuarioActual.setFont(new java.awt.Font("Nimbus Mono L", 1, 24)); // NOI18N
         label_UsuarioActual.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_UsuarioActual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/usuario.png"))); // NOI18N
         label_UsuarioActual.setText("Admin");
         label_UsuarioActual.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(label_UsuarioActual);
+        label_UsuarioActual.setBounds(400, 10, 160, 56);
 
-        jButton1.setFont(new java.awt.Font("Nimbus Mono L", 1, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flecha-hacia-la-izquierda.png"))); // NOI18N
-        jButton1.setText("Menu Principal");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_mainMenu.setFont(new java.awt.Font("Nimbus Mono L", 1, 18)); // NOI18N
+        btn_mainMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icono-de-inicio-silueta.png"))); // NOI18N
+        btn_mainMenu.setText("Menu Principal");
+        btn_mainMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_mainMenuActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_mainMenu);
+        btn_mainMenu.setBounds(12, 12, 224, 56);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 682, Short.MAX_VALUE)
-                        .addComponent(label_UsuarioActual, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(label_UsuarioActual, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(466, Short.MAX_VALUE))
-        );
+        txtDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDNI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDNIKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtDNI);
+        txtDNI.setBounds(220, 260, 150, 35);
+
+        label_ingreseDNI.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_ingreseDNI.setText("Ingrese el DNI del cliente");
+        getContentPane().add(label_ingreseDNI);
+        label_ingreseDNI.setBounds(200, 210, 190, 34);
+
+        Buscar.setText("Buscar");
+        Buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BuscarMouseClicked(evt);
+            }
+        });
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Buscar);
+        Buscar.setBounds(220, 310, 150, 41);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(12, 73, 551, 10);
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo1.jpg"))); // NOI18N
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(0, 0, 580, 550);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        menuPrincipal mp = new menuPrincipal();
+    private void btn_mainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mainMenuActionPerformed
+        menuPrincipal mp;
+        mp = new menuPrincipal();
         mp.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_mainMenuActionPerformed
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        String busqueda_dni = null;
+        try {
+            busqueda_dni = metodos.buscarDNI(txtDNI.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(registrarLlamada.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (busqueda_dni.equals("usuario no encontrado")){
+            JOptionPane.showMessageDialog(this, "El usuario no se encuentra registrado");
+            cargarCliente cc = new cargarCliente();
+            cc.setVisible(true);
+            dispose();}
+    }//GEN-LAST:event_BuscarActionPerformed
+
+    private void BuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarMouseClicked
+
+    private void txtDNIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIKeyTyped
+        char c = evt.getKeyChar(); if (c<'0'||c>'9') evt.consume(); 
+    }//GEN-LAST:event_txtDNIKeyTyped
 
     /**
      * @param args the command line arguments
@@ -123,8 +175,13 @@ public class registrarLlamada extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Buscar;
+    private javax.swing.JButton btn_mainMenu;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel label_UsuarioActual;
+    private javax.swing.JLabel label_ingreseDNI;
+    private javax.swing.JTextField txtDNI;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,6 +19,7 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
+        setSize(364,500);
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -35,27 +36,27 @@ public class login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_exit = new javax.swing.JButton();
-        txt_user = new javax.swing.JTextField();
+        txt_usuarioLogin = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txt_password = new javax.swing.JPasswordField();
+        txt_contraseniaLogin = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
-        btn_login1 = new javax.swing.JButton();
+        btn_signIn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MaxSelect System");
-        setMinimumSize(new java.awt.Dimension(610, 415));
+        setMaximumSize(new java.awt.Dimension(364, 500));
+        setMinimumSize(new java.awt.Dimension(364, 500));
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Nimbus Mono L", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Nimbus Mono L", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Sistema de gestion");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(12, 12, 586, 53);
+        jLabel1.setBounds(0, 0, 360, 70);
 
         btn_exit.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
         btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout.png"))); // NOI18N
@@ -71,65 +72,56 @@ public class login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_exit);
-        btn_exit.setBounds(20, 300, 260, 42);
-        getContentPane().add(txt_user);
-        txt_user.setBounds(260, 150, 252, 30);
+        btn_exit.setBounds(50, 370, 270, 42);
+        getContentPane().add(txt_usuarioLogin);
+        txt_usuarioLogin.setBounds(50, 190, 270, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Usuario");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(170, 160, 78, 22);
+        jLabel2.setBounds(150, 170, 78, 22);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Contraseña");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(130, 200, 116, 20);
+        jLabel3.setBounds(130, 230, 116, 20);
 
-        txt_password.addActionListener(new java.awt.event.ActionListener() {
+        txt_contraseniaLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_passwordActionPerformed(evt);
+                txt_contraseniaLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_password);
-        txt_password.setBounds(260, 190, 252, 30);
+        getContentPane().add(txt_contraseniaLogin);
+        txt_contraseniaLogin.setBounds(50, 250, 270, 30);
 
         jLabel5.setFont(new java.awt.Font("Nimbus Mono L", 1, 36)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Post-Venta");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 60, 590, 40);
+        jLabel5.setBounds(0, 40, 370, 60);
 
-        btn_login1.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
-        btn_login1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
-        btn_login1.setText(" INGRESAR");
-        btn_login1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_signIn.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        btn_signIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
+        btn_signIn.setText(" INGRESAR");
+        btn_signIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_login1MouseClicked(evt);
+                btn_signInMouseClicked(evt);
             }
         });
-        btn_login1.addActionListener(new java.awt.event.ActionListener() {
+        btn_signIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_login1ActionPerformed(evt);
+                btn_signInActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_login1);
-        btn_login1.setBounds(320, 300, 270, 42);
+        getContentPane().add(btn_signIn);
+        btn_signIn.setBounds(50, 320, 270, 42);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo1.jpg"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 60, 50);
-
-        jButton2.setText("Ingresar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(260, 250, 81, 24);
+        jLabel4.setBounds(0, 0, 370, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,62 +130,78 @@ public class login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_exitActionPerformed
 
-    private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
+    private void txt_contraseniaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_contraseniaLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_passwordActionPerformed
+    }//GEN-LAST:event_txt_contraseniaLoginActionPerformed
 
     private void btn_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMouseClicked
         dispose();
     }//GEN-LAST:event_btn_exitMouseClicked
 
-    private void btn_login1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_login1MouseClicked
-        
-                
-        
+    private void btn_signInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_signInMouseClicked
+
         String user = "admin";
         String pass = "123";
         
-        String contrasenia = new String(txt_password.getPassword());
-        
-        if (txt_user.getText().equals(user) && (pass.equals(contrasenia))){
-            menuPrincipal mn = new menuPrincipal();
-            mn.setVisible(true);
+        if ((txt_usuarioLogin.getText().equals(user)) && (txt_contraseniaLogin.getText().equals(pass))){
+            menuPrincipal mp = new menuPrincipal();
+            mp.setVisible(true);
             dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "Usuario/Contraseña incorrecto."
-                    + "","ERROR",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Usuario / Contraseña incorrecto. Por favor verifique"
+                    + "","Error!",JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btn_login1MouseClicked
+    }//GEN-LAST:event_btn_signInMouseClicked
 
-    private void btn_login1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_login1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        metodos.
+    private void btn_signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signInActionPerformed
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_signInActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
- 
-        
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(menuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(menuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(menuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(menuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new login().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_exit;
-    private javax.swing.JButton btn_login1;
+    private javax.swing.JButton btn_signIn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField txt_password;
-    private javax.swing.JTextField txt_user;
+    private javax.swing.JPasswordField txt_contraseniaLogin;
+    private javax.swing.JTextField txt_usuarioLogin;
     // End of variables declaration//GEN-END:variables
 }
