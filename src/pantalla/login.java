@@ -5,17 +5,14 @@
  */
 package pantalla;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
-import maxselectdds.Conectar;
+import maxselectdds.Metodos_sql;
 /**
  *
  * @author erick
  */
 public class login extends javax.swing.JFrame {
-    Conectar con;
+    
 
     /**
      * Creates new form principal
@@ -25,7 +22,7 @@ public class login extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-
+    Metodos_sql metodos = new Metodos_sql();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -173,8 +170,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_login1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        con = new Conectar();
-        Connection reg = con.getConnection();
+        metodos.
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

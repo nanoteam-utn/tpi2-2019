@@ -5,6 +5,8 @@
  */
 package pantalla;
 
+import maxselectdds.Metodos_sql;
+
 /**
  *
  * @author erick
@@ -17,7 +19,7 @@ public class Frm_alta_usuarios extends javax.swing.JFrame {
     public Frm_alta_usuarios() {
         initComponents();
     }
-
+    Metodos_sql metodos = new Metodos_sql();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,6 +33,7 @@ public class Frm_alta_usuarios extends javax.swing.JFrame {
         Campo2 = new javax.swing.JTextField();
         Campo3 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,6 +44,13 @@ public class Frm_alta_usuarios extends javax.swing.JFrame {
         Campo3.setText("jTextField1");
 
         jPasswordField1.setText("jPasswordField1");
+
+        jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,7 +66,9 @@ public class Frm_alta_usuarios extends javax.swing.JFrame {
                             .addComponent(Campo3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(122, 122, 122)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton1)
+                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(184, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -70,11 +82,17 @@ public class Frm_alta_usuarios extends javax.swing.JFrame {
                 .addComponent(Campo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        metodos.guardar(txtNombre.getText(),txtApellido.getText(),txtCorreo.getText(),txtContrasena.getText());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,6 +133,7 @@ public class Frm_alta_usuarios extends javax.swing.JFrame {
     private javax.swing.JTextField Campo1;
     private javax.swing.JTextField Campo2;
     private javax.swing.JTextField Campo3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }
