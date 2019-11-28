@@ -18,6 +18,7 @@ public class cargarCliente extends javax.swing.JFrame {
     static String dniNuevo;
     static boolean esNuevo;
 
+    
     Metodos_sql metodos = new Metodos_sql();
     /**
      * Creates new form cargarCliente
@@ -27,6 +28,8 @@ public class cargarCliente extends javax.swing.JFrame {
         setSize(575,580);
         setResizable(false);
         setLocationRelativeTo(null);
+        txtDNI.setText(registrarLlamada.dniEncontrado);
+        txtDNI.setEnabled(false);
         
     }
 

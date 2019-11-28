@@ -112,7 +112,7 @@ public class seleccionarMotivo extends javax.swing.JFrame {
         String seleccion = null;
         seleccion = (String) box_motivos.getSelectedItem();
          
-        int i = metodos.guardarMotivo(seleccion,"39136101");
+        int i = metodos.guardarMotivo(seleccion,registrarLlamada.dniEncontrado);
         if(i > 0){
             JOptionPane.showMessageDialog(this,"Llamada registrada correctamente", "Aviso",
                     JOptionPane.INFORMATION_MESSAGE);

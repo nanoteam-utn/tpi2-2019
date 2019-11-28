@@ -5,26 +5,26 @@
  */
 package pantalla;
 
-
 import javax.swing.JOptionPane;
 import maxselectdds.Metodos_sql;
+
 /**
  *
  * @author erick
  */
 public class login extends javax.swing.JFrame {
-    
 
     /**
      * Creates new form principal
      */
     public login() {
         initComponents();
-        setSize(364,500);
+        setSize(364, 500);
         setResizable(false);
         setLocationRelativeTo(null);
     }
     Metodos_sql metodos = new Metodos_sql();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,7 +128,7 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
-        
+
     }//GEN-LAST:event_btn_exitActionPerformed
 
     private void txt_contraseniaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_contraseniaLoginActionPerformed
@@ -143,19 +143,19 @@ public class login extends javax.swing.JFrame {
 
         String user = "admin";
         String pass = "123";
-        
-        if ((txt_usuarioLogin.getText().equals(user)) && (txt_contraseniaLogin.getText().equals(pass))){
+
+        if ((txt_usuarioLogin.getText().equals(user)) && (txt_contraseniaLogin.getText().equals(pass))) {
             menuPrincipal mp = new menuPrincipal();
             mp.setVisible(true);
             dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Usuario / Contraseña incorrecto. Por favor verifique"
-                    + "","Error!",JOptionPane.ERROR_MESSAGE);
+                    + "", "Error!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btn_signInMouseClicked
 
     private void btn_signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signInActionPerformed
-        
+
     }//GEN-LAST:event_btn_signInActionPerformed
 
     /**
@@ -206,5 +206,4 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JTextField txt_usuarioLogin;
     // End of variables declaration//GEN-END:variables
 
-    
 }
